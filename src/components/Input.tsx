@@ -18,13 +18,7 @@ export default function Input({
   return (
     <>
       <label htmlFor={id}>{label}</label>
-      <input
-        defaultValue={value}
-        {...rest}
-        id={id}
-        name={name}
-        onChange={(e) => search.set(name, e.target.value)}
-      />
+      <input defaultValue={value} {...rest} id={id} name={name} />
     </>
   );
 }
