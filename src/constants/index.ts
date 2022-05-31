@@ -1,4 +1,5 @@
 import countriesJson from "./country_names.json";
+import countriesByDirectoriesJson from "./countries_and_directories.json";
 
 export const countries = Object.entries(countriesJson).map(([key, value]) => ({
   id: key,
@@ -13,3 +14,10 @@ export const countriesByName = countries.reduce(
   },
   {}
 );
+
+export const countriesByDirectory = Object.entries(
+  countriesByDirectoriesJson
+).reduce((map: { [key: string]: string[] }, [key, value]) => {
+  map[key] = value;
+  return map;
+}, {});
