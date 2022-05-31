@@ -1,7 +1,7 @@
 import { InputHTMLAttributes } from "react";
 import { useSearchParams } from "react-router-dom";
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
   name: string;
   id?: string;
