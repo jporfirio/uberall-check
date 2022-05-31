@@ -11,12 +11,12 @@ export default function Home() {
         <fieldset>
           <legend>Form</legend>
 
-          <Input label="Company Name" name="company" />
+          <Input label="Company Name" name="name" />
           <Input label="Country" name="country" />
           <Input label="Street and number" name="street" />
           <Input
             label="Zip code"
-            name="zipcode"
+            name="zip"
             type="number"
             placeholder="Amazon"
           />

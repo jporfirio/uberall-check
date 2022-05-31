@@ -5,31 +5,17 @@ import {
   useLoaderData,
   useLocation,
 } from "react-router-dom";
-import { z } from "zod";
-
-function getQueryParams(url: string | URL): { [key: string]: string | number } {
-  const { searchParams } = new URL(url);
-  const entries = Array.from(searchParams.entries());
-
-  return entries.reduce((query: { [key: string]: any }, [key, value]) => {
-    query[key] = value;
-    return query;
-  }, {});
-}
-
-const schema = z.object({
-  company: z.string(),
-  country: z.string(),
-  street: z.string(),
-  zipcode: z.string(),
-});
+import getCheckup from "../api/check";
+import CheckForm from "../model/CheckForm";
+import getQueryParams from "../utils/getQueryparams";
 
 export const loader: LoaderFunction = async ({ request }) => {
   const query = getQueryParams(request.url);
 
-  schema.parse(query);
+  const parsed = CheckForm.parse(query);
+  const response = await getCheckup(parsed);
 
-  return json(query);
+  return json(response);
 };
 
 export default function Result() {
@@ -38,8 +24,10 @@ export default function Result() {
 
   return (
     <div>
-      <h1>Result: {JSON.stringify(data)}</h1>
+      <h1>Result</h1>
       <Link to={`/${search}`}>Home</Link>
+
+      <code>{JSON.stringify(data)}</code>
     </div>
   );
 }
