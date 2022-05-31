@@ -1,5 +1,7 @@
 import { Form } from "react-router-dom";
 import Input from "../components/Input";
+import Select from "../components/Select";
+import { countries } from "../constants";
 
 // name, country, street, number, zipcode
 export default function Home() {
@@ -12,7 +14,7 @@ export default function Home() {
           <legend>Form</legend>
 
           <Input label="Company Name" name="company" />
-          <Input label="Country" name="country" />
+          <Select options={countries} label="Country" name="country" />
           <Input label="Street and number" name="street" />
           <Input
             label="Zip code"
