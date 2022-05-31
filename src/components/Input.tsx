@@ -16,9 +16,10 @@ export default function Input({
   const value = search.get(name) ?? undefined;
 
   return (
-    <>
-      <label htmlFor={id}>{label}</label>
+    <fieldset className="form-field">
+      <legend>{label}</legend>
+      {/* <label htmlFor={id}>{label}</label> */}
       <input defaultValue={value} {...rest} id={id} name={name} />
-    </>
+    </fieldset>
   );
 }

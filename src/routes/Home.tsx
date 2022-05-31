@@ -1,18 +1,17 @@
-import { Form } from "react-router-dom";
+import { Form, useNavigation } from "react-router-dom";
 import Input from "../components/Input";
 import Select from "../components/Select";
 import { countries } from "../constants";
 
-// name, country, street, number, zipcode
 export default function Home() {
+  const navigation = useNavigation();
+
   return (
     <div>
-      <h1>Home</h1>
+      <h2>COMPANY PRESENCE CHECK</h2>
 
       <Form action="/result">
         <fieldset>
-          <legend>Form</legend>
-
           <Input label="Company Name" name="name" />
           <Select options={countries} label="Country" name="country" />
           <Input label="Street and number" name="street" />
@@ -23,7 +22,7 @@ export default function Home() {
             placeholder="Amazon"
           />
 
-          <button>Submit</button>
+          <button disabled={navigation.state !== "idle"}>Submit</button>
         </fieldset>
       </Form>
     </div>

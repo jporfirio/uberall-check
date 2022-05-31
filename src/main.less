@@ -1,8 +1,37 @@
-.h1 {
-  border: 1px solid red;
+@border: 1px solid black;
+
+img {
+  height: 4em;
 }
 
-h1 {
-  .h1();
-  border-color: black;
+tr {
+  border: 1px solid black;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  gap: 1em;
+}
+
+fieldset.form-field {
+  border: @border;
+}
+
+div#root {
+  margin-inline: auto;
+}
+
+td {
+  padding: 1em;
+}
+
+table, th, td {
+  border: @border;
+  width: 100%;
+}
+
+tbody > tr:nth-child(2n + 1) {
+  background-color: darkgray;
 }

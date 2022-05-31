@@ -26,14 +26,29 @@ export default function Result() {
 
   return (
     <div>
-      <h1>Result</h1>
+      <h1>Results</h1>
       <Link to={`/${search}`}>Home</Link>
+      <table>
+        <thead>
+          <tr>
+            <td>Directory</td>
+            <td>Info</td>
+            <td>Hours</td>
+            <td>Photos</td>
+          </tr>
+        </thead>
 
-      {countriesByDirectory[data.country].map((key) => (
-        <Directory platform={key} key={key} id={data.id} token={data.token} />
-      ))}
-
-      <code>{JSON.stringify(data)}</code>
+        <tbody>
+          {countriesByDirectory[data.country].map((key) => (
+            <Directory
+              platform={key}
+              key={key}
+              id={data.id}
+              token={data.token}
+            />
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
