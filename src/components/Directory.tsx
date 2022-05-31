@@ -31,22 +31,22 @@ export default function Directory({ platform, id, token }: DirectoryProps) {
         <img src={directoryLogosByName[platform]} alt={platform} />
       </td>
       <td>
-        <p>{result.name}</p>
+        <p>{result?.name}</p>
         <p>
-          {result.streetAndNo} - {result.city}
+          {result?.streetAndNo} - {result?.city}
         </p>
-        <p>{result.phone}</p>
-        <p>{result.website}</p>
+        <p>{result?.phone}</p>
+        <p>{result?.website}</p>
       </td>
       <td>
-        {result.openingHoursStatus === "PRESENT" ? (
+        {result?.openingHoursStatus === "PRESENT" ? (
           <>&#10003;</>
         ) : (
           <>&#10006;</>
         )}
       </td>
       <td>
-        {result.photosStatus === "PRESENT" ? <>&#10003;</> : <>&#10006;</>}
+        {result?.photosStatus === "PRESENT" ? <>&#10003;</> : <>&#10006;</>}
       </td>
     </tr>
   );
