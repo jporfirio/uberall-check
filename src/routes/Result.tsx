@@ -6,6 +6,8 @@ import {
   useLocation,
 } from "react-router-dom";
 import getCheckup from "../api/check";
+import Directory from "../components/Directory";
+import { countriesByDirectory } from "../constants";
 import CheckForm from "../model/CheckForm";
 import getQueryParams from "../utils/getQueryparams";
 
@@ -26,6 +28,10 @@ export default function Result() {
     <div>
       <h1>Result</h1>
       <Link to={`/${search}`}>Home</Link>
+
+      {countriesByDirectory[data.country].map((key) => (
+        <Directory platform={key} key={key} id={data.id} token={data.token} />
+      ))}
 
       <code>{JSON.stringify(data)}</code>
     </div>
